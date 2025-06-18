@@ -1,32 +1,23 @@
-Pseudo-code du script : 
-
 FONCTION structure(nom_ville, code_pays) : tableau
-    Variable locale : response, data, temp_actuelle, description, humidite, pression
+    Variables locales : response, data, temp_actuelle, description, humidite, pression
 
     Envoyer une requête GET à l'API OpenWeather avec nom_ville et code_pays
 
     SI le statut de la réponse = 200 ALORS
-        Afficher "Statut de la réponse : ", statut de la réponse
-
         Convertir la réponse en JSON et stocker dans data
-
         temp_actuelle ← data["main"]["temp"]
         description   ← data["weather"][0]["description"]
         humidite      ← data["main"]["humidity"]
         pression      ← data["main"]["pressure"]
-
         RETOURNER temp_actuelle, description, humidite, pression
     SINON
-        Afficher "La ville recherchée est inexistante !"
-        Afficher "Statut de la réponse : ", statut de la réponse
+        Afficher "La ville recherchée est inexistante ou une erreur est survenue."
         RETOURNER rien
     FIN SI
 FIN FONCTION
 
 
-
 FONCTION affichage(nom_ville, code_pays, temp_actuelle, description, humidite, pression) : chaîne
-    
     Afficher "Température : ", temp_actuelle, "°C"
     Afficher "Description : ", description
     Afficher "Humidité : ", humidite, "%"
@@ -53,7 +44,7 @@ FIN FONCTION
 
 // Programme Principal
 
-Variable locale : nom_ville, code_pays, resultat, temp_actuelle, description, humidite, pression, ligne
+Variables locales : nom_ville, code_pays, resultat, temp_actuelle, description, humidite, pression, ligne
 
 Afficher "Veuillez saisir le nom de la ville :"
 Lire nom_ville
