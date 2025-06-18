@@ -1,5 +1,6 @@
 import requests
 
+# Fonction qui récupère les données météo depuis l'API OpenWeatherMap
 def structure(nom_ville, code_pays):
     try:
         response = requests.get(
@@ -19,6 +20,7 @@ def structure(nom_ville, code_pays):
         print(f"Une erreur est survenue : {e}")
         return None
 
+# Fonction pour afficher les données météo et formater une ligne de rapport
 def affichage(nom_ville, code_pays, temp_actuelle, description, humidite, pression):
     print(f"Température : {temp_actuelle}°C")
     print(f"Description : {description}")
@@ -34,7 +36,8 @@ def affichage(nom_ville, code_pays, temp_actuelle, description, humidite, pressi
         f"Pression : {pression} hPa\n"
     )
     return ligne
-
+    
+# Fonction pour écrire le rapport météo dans un fichier texte    
 def ecriture(ligne):
     try:
         with open('RapportMétéo.txt', 'w', encoding='utf-8') as f:
